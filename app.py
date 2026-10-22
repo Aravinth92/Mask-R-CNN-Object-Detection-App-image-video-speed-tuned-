@@ -248,4 +248,9 @@ with gr.Blocks(title="Mask R-CNN Object Detector", **({} if _G6 else _STYLE)) as
     gr.HTML('<div class="foot">Mask R-CNN · PyTorch · Gradio</div>')
 
 if __name__ == "__main__":
-    demo.queue().launch(inbrowser=True, **(_STYLE if _G6 else {}))
+   demo.queue().launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("PORT", "10000")),
+    inbrowser=False,
+    **(_STYLE if _G6 else {})
+)
